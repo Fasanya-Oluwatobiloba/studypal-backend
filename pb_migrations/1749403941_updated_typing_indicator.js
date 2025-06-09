@@ -1,0 +1,20 @@
+/// <reference path="../pb_data/types.d.ts" />
+migrate((app) => {
+  const collection = app.findCollectionByNameOrId("pbc_755682315")
+
+  // update collection data
+  unmarshal({
+    "name": "typing_indicators"
+  }, collection)
+
+  return app.save(collection)
+}, (app) => {
+  const collection = app.findCollectionByNameOrId("pbc_755682315")
+
+  // update collection data
+  unmarshal({
+    "name": "typing_indicator"
+  }, collection)
+
+  return app.save(collection)
+})
