@@ -1,4 +1,3 @@
-@@ -0,0 +1,28 @@
 FROM alpine:3.18
 
 # Install dependencies (curl for health check)
@@ -26,4 +25,4 @@ WORKDIR /app
 
 # Expose and run
 EXPOSE 8080
-CMD ["/app/pocketbase", "serve", "--http=0.0.0.0:8080"]Add comment
+CMD ["/app/pocketbase", "serve", "--http=0.0.0.0:8080"]
