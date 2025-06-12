@@ -195,7 +195,7 @@ migrate((app) => {
     "name": "tasks",
     "system": false,
     "type": "base",
-    "updateRule": "@request.auth.id = user.id || @request.auth.role = 'admin' || (@request.auth.role = 'sub-admin')",
+    "updateRule": "@request.auth.id = user || @request.auth.role = 'admin' || @request.auth.role = 'sub-admin'",
     "viewRule": "@request.auth.id = user.id"
   });
 
