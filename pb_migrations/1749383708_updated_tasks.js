@@ -4,7 +4,7 @@ migrate((app) => {
 
   // update collection data
   unmarshal({
-    "createRule": "@request.auth.id != \"\""
+    "createRule": "@request.auth.id != ''"
   }, collection)
 
   return app.save(collection)
@@ -13,7 +13,7 @@ migrate((app) => {
 
   // update collection data
   unmarshal({
-    "createRule": "@request.auth.id != '' && @request.auth.user = @request.auth.id"
+    "createRule": "@request.auth.id != ''"
   }, collection)
 
   return app.save(collection)
