@@ -1,8 +1,8 @@
 /// <reference path="../pb_data/types.d.ts" />
 migrate((app) => {
   const collection = new Collection({
-    "createRule": "@request.auth.id != '' && @request.auth.user = @request.auth.id",
-    "deleteRule": null,
+    "createRule": "@request.auth.id != ''",
+    "deleteRule": "@request.auth.role = 'admin' || (@request.auth.role = 'sub-admin",
     "fields": [
       {
         "autogeneratePattern": "[a-z0-9]{15}",
@@ -195,8 +195,8 @@ migrate((app) => {
     "name": "tasks",
     "system": false,
     "type": "base",
-    "updateRule": "@request.auth.id = user.id || @request.auth.role = 'admin' || (@request.auth.role = 'sub-admin' && @request.auth.status != '')",
-    "viewRule": null
+    "updateRule": "@request.auth.id = user.id || @request.auth.role = 'admin' || (@request.auth.role = 'sub-admin')",
+    "viewRule": "@request.auth.id = user.id"
   });
 
   return app.save(collection);
