@@ -2,7 +2,7 @@
 migrate((app) => {
   const collection = new Collection({
     "createRule": "@request.auth.id != ''",
-    "deleteRule": "@request.auth.role = 'admin' || (@request.auth.role = 'sub-admin",
+    "deleteRule": "@request.auth.id = user",
     "fields": [
       {
         "autogeneratePattern": "[a-z0-9]{15}",
@@ -195,8 +195,8 @@ migrate((app) => {
     "name": "tasks",
     "system": false,
     "type": "base",
-    "updateRule": "@request.auth.id = user || @request.auth.role = 'admin' || @request.auth.role = 'sub-admin'",
-    "viewRule": "@request.auth.id = user.id"
+    "updateRule": "@request.auth.id = user",
+    "viewRule": "@request.auth.id != '' && user = @request.auth.id"
   });
 
   return app.save(collection);
